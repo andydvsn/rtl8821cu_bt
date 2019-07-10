@@ -8,10 +8,6 @@ FIRMWARE_DIR := 8821CU
 
 install:
 	make -C $(FIRMWARE_DIR) -s
-
-	#- rmmod btusb
-	#- mv $(DRV_DIR)/btusb.ko $(DRV_DIR)/btusb_bak
-	#- rmmod rtk_btusb
 	make -C $(SRC_DIR)
 	cp -f $(SRC_DIR)/rtk_btusb.ko $(DRV_DIR)/rtk_btusb.ko
 	depmod -a `uname -r`
@@ -21,9 +17,7 @@ install:
 
 uninstall:
 	make -C $(FIRMWARE_DIR) clean -s
-
-	#- mv -n $(DRV_DIR)/btusb_bak $(DRV_DIR)/btusb.ko
-	- rmmod rtk_btusb
+	rmmod rtk_btusb
 	rm -f $(DRV_DIR)/rtk_btusb.ko
 	depmod -a $(MDL_DIR)
 	echo "uninstall rtk_btusb success!"
