@@ -2199,7 +2199,7 @@ int load_firmware(dev_data * dev_entry, uint8_t ** buff)
 
 	release_firmware(fw);
 	fw_name = patch_entry->patch_name;
-	RTKBT_ERR("fw name is  %s", fw_name);
+	RTKBT_DBG("fw name is  %s", fw_name);
 
 	ret_val = request_firmware(&fw, fw_name, &udev->dev);
 	if (ret_val < 0) {
@@ -2235,7 +2235,7 @@ int load_firmware(dev_data * dev_entry, uint8_t ** buff)
 			}
 		}
 	} else {
-		RTKBT_ERR("This is not 8723a, use new patch style!");
+		RTKBT_DBG("This is not 8723a, use new patch style!");
 
 		/* Get version from ROM */
 		gEVersion = rtk_get_eversion(dev_entry);
