@@ -12,8 +12,7 @@ install:
 	- rmmod rtk_btusb
 	make -C $(SRC_DIR)
 	cp -f $(SRC_DIR)/rtk_btusb.ko $(DRV_DIR)/rtk_btusb.ko
-	depmod -a $(MDL_DIR)
-	make -C $(SRC_DIR) clean
+	depmod -a `uname -r`
 	echo "install rtk_btusb success!"
 
 ##########################################
