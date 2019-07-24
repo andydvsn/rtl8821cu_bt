@@ -714,7 +714,7 @@ static int btusb_open(struct hci_dev *hdev)
 
 	/*******************************/
 	if (0 == atomic_read(&hdev->promisc)) {
-		RTKBT_ERR("btusb_open hdev->promisc ==0");
+		RTKBT_INFO("btusb_open hdev->promisc ==0");
 		err = -1;
 		//goto failed;
 	}
